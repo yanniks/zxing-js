@@ -114,7 +114,11 @@ export default class StringEncoding {
         s += '%' + h;
       }
 
-      return decodeURIComponent(s);
+      try {
+        return decodeURIComponent(s);
+      } catch (e) {
+        return s;
+      }
     }
 
     if (characterSet.equals(CharacterSetECI.UnicodeBigUnmarked)) {
